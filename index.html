@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eventique🌻| Event Management</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #faf8f3;
+    color: #252525;
+}
+
+/* HEADER */
+header {
+    background: #171717;
+    color: white;
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    color: #d9b56d;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #d9b56d;
+}
+
+/* HERO */
+.hero {
+    min-height: 470px;
+    background:
+    linear-gradient(#0008, #0008),
+    url("https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=1600")
+    center/cover;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 70px 8%;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.hero h1 {
+    font-size: 52px;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: #e5c27d;
+}
+
+.hero p {
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.btn {
+    display: inline-block;
+    background: #c49a4a;
+    color: #171717;
+    padding: 13px 28px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #e5c27d;
+    transform: translateY(-3px);
+}
+
+/* COMMON SECTIONS */
+section {
+    padding: 65px 8%;
+}
+
+.heading {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #777;
+    margin-bottom: 38px;
+}
+
+/* SERVICES */
+.services {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.service-card {
+    background: white;
+    padding: 30px 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px #00000012;
+    transition: 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-7px);
+}
+
+.service-card .emoji {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.service-card h3 {
+    color: #a77d34;
+    margin-bottom: 12px;
+}
+
+.service-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* EVENTS */
+.events {
+    background: #f0ece3;
+}
+
+.event-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.event-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 12px #00000010;
+}
+
+.event-card img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+}
+
+.event-info {
+    padding: 20px;
+}
+
+.event-info h3 {
+    margin-bottom: 10px;
+}
+
+.event-info p {
+    color: #777;
+    line-height: 1.6;
+}
+
+/* PACKAGES */
+.packages {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.package-card {
+    background: white;
+    text-align: center;
+    padding: 30px 20px;
+    border: 1px solid #e1d4bb;
+    border-radius: 10px;
+}
+
+.package-card.featured {
+    background: #201e1a;
+    color: white;
+    transform: scale(1.03);
+}
+
+.package-card h3 {
+    color: #c49a4a;
+    font-size: 23px;
+    margin-bottom: 15px;
+}
+
+.package-card h2 {
+    margin: 18px 0;
+}
+
+.package-card ul {
+    list-style: none;
+    line-height: 2.4;
+    margin-bottom: 20px;
+}
+
+/* TESTIMONIALS */
+.testimonials {
+    background: #f0ece3;
+}
+
+.review-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.review {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    line-height: 1.7;
+}
+
+.review h4 {
+    color: #a77d34;
+    margin-top: 15px;
+}
+
+/* TEAM */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.team-card {
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.team-card img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.team-card p {
+    color: #777;
+    margin-top: 7px;
+}
+
+/* CONTACT */
+.contact {
+    background: #201e1a;
+    color: white;
+    text-align: center;
+}
+
+.contact h2 {
+    color: #e5c27d;
+}
+
+.contact p {
+    margin: 15px 0;
+    line-height: 1.8;
+}
+
+/* FOOTER */
+footer {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 22px;
+}
+
+footer span {
+    color: #d9b56d;
+}
+
+/* RESPONSIVE */
+@media(max-width: 850px) {
+    .services, .event-grid, .packages,
+    .review-grid, .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+}
+
+@media(max-width: 550px) {
+    header {
+        justify-content: center;
+        text-align: center;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 7px;
+    }
+
+    .services, .event-grid, .packages,
+    .review-grid, .team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        text-align: center;
+        min-height: 400px;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .package-card.featured {
+        transform: none;
+    }
+
+    section {
+        padding: 45px 6%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="logo">EVENTIQUE🌻</div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#events">Events</a>
+        <a href="#packages">Packages</a>
+        <a href="#team">Team</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<!-- HERO SECTION -->
+<div class="hero" id="home">
+    <div class="hero-content">
+        <h1>Creating Moments, <span>Making Memories</span></h1>
+
+        <p>
+            We turn your special occasions into unforgettable
+            experiences. From beautiful weddings to grand
+            corporate events, we plan every detail with perfection.
+        </p>
+
+        <a href="#contact" class="btn">Plan Your Event</a>
+    </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+    <h2 class="heading">Our Services</h2>
+    <p class="subtitle">Everything you need for a perfect celebration.</p>
+
+    <div class="services">
+
+        <div class="service-card">
+            <div class="emoji">💍</div>
+            <h3>Wedding Planning</h3>
+            <p>Beautiful wedding arrangements, decoration and complete event coordination.</p>
+        </div>
+
+        <div class="service-card">
+            <div class="emoji">🎂</div>
+            <h3>Birthday Parties</h3>
+            <p>Creative themes, decorations and exciting birthday celebrations.</p>
+        </div>
+
+        <div class="service-card">
+            <div class="emoji">🏢</div>
+            <h3>Corporate Events</h3>
+            <p>Professional conferences, meetings and business celebrations.</p>
+        </div>
+
+        <div class="service-card">
+            <div class="emoji">🎵</div>
+            <h3>Music Festivals</h3>
+            <p>Live performances, stage setups and entertainment management.</p>
+        </div>
+
+        <div class="service-card">
+            <div class="emoji">🎓</div>
+            <h3>College Events</h3>
+            <p>Farewell parties, annual days and graduation ceremonies.</p>
+        </div>
+
+        <div class="service-card">
+            <div class="emoji">🌸</div>
+            <h3>Decoration</h3>
+            <p>Creative floral arrangements, lighting and customized event designs.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- UPCOMING EVENTS -->
+<section class="events" id="events">
+    <h2 class="heading">Upcoming Events</h2>
+    <p class="subtitle">A glimpse of the celebrations we are organizing.</p>
+
+    <div class="event-grid">
+
+        <div class="event-card">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=700" alt="Wedding event">
+            <div class="event-info">
+                <h3>Royal Wedding Celebration</h3>
+                <p>📅 December 12, 2026</p>
+                <p>📍 Hyderabad, India</p>
+            </div>
+        </div>
+
+        <div class="event-card">
+            <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=700" alt="Music festival">
+            <div class="event-info">
+                <h3>Grand Music Festival</h3>
+                <p>📅 January 18, 2027</p>
+                <p>📍 Vijayawada, India</p>
+            </div>
+        </div>
+
+        <div class="event-card">
+            <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=700" alt="Corporate conference">
+            <div class="event-info">
+                <h3>Business Excellence Summit</h3>
+                <p>📅 February 10, 2027</p>
+                <p>📍 Bengaluru, India</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- PACKAGES -->
+<section id="packages">
+    <h2 class="heading">Our Packages</h2>
+    <p class="subtitle">Choose a package that suits your celebration.</p>
+
+    <div class="packages">
+
+        <div class="package-card">
+            <h3>Silver</h3>
+            <h2>₹25,000</h2>
+            <ul>
+                <li>Basic Decoration</li>
+                <li>Venue Assistance</li>
+                <li>Basic Photography</li>
+                <li>Event Coordination</li>
+            </ul>
+            <a href="#contact" class="btn">Choose Plan</a>
+        </div>
+
+        <div class="package-card featured">
+            <h3>Gold</h3>
+            <h2>₹50,000</h2>
+            <ul>
+                <li>Premium Decoration</li>
+                <li>Venue Management</li>
+                <li>Professional Photography</li>
+                <li>Food Arrangements</li>
+            </ul>
+            <a href="#contact" class="btn">Choose Plan</a>
+        </div>
+
+        <div class="package-card">
+            <h3>Platinum</h3>
+            <h2>₹1,00,000</h2>
+            <ul>
+                <li>Luxury Decoration</li>
+                <li>Premium Venue</li>
+                <li>Photo & Video Coverage</li>
+                <li>Complete Event Management</li>
+            </ul>
+            <a href="#contact" class="btn">Choose Plan</a>
+        </div>
+
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+    <h2 class="heading">What Our Customers Say</h2>
+    <p class="subtitle">Our customers make our journey special.</p>
+
+    <div class="review-grid">
+
+        <div class="review">
+            <p>"Eventique made our wedding absolutely beautiful. Every detail was perfectly planned!"</p>
+            <h4>— Priya Sharma</h4>
+            ⭐⭐⭐⭐⭐
+        </div>
+
+        <div class="review">
+            <p>"Their team was creative, professional and organized. Our corporate event was a huge success."</p>
+            <h4>— Rahul Verma</h4>
+            ⭐⭐⭐⭐⭐
+        </div>
+
+        <div class="review">
+            <p>"The birthday decorations were amazing. Everything looked wonderful and memorable."</p>
+            <h4>— Ananya Reddy</h4>
+            ⭐⭐⭐⭐⭐
+        </div>
+
+    </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+    <h2 class="heading">Meet Our Team</h2>
+    <p class="subtitle">The creative minds behind every successful event.</p>
+
+    <div class="team-grid">
+
+        <div class="team-card">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400" alt="Team member">
+            <h3>Arjun Kumar</h3>
+            <p>Founder & CEO</p>
+        </div>
+
+        <div class="team-card">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400" alt="Team member">
+            <h3>Meera Sharma</h3>
+            <p>Creative Director</p>
+        </div>
+
+        <div class="team-card">
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400" alt="Team member">
+            <h3>Rohan Patel</h3>
+            <p>Event Coordinator</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+    <h2 class="heading">Let's Plan Something Amazing!</h2>
+
+    <p>
+        Have an event in mind? Let us make it unforgettable.
+        <br><br>
+        📞 Phone: +91 9063367812
+        <br>
+        ✉ Email: info@eventique.com
+        <br>
+        📍 Location: Hyderabad, India
+    </p>
+
+    <a href="mailto:info@eventique🌻.com" class="btn">Contact Us</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 <span>EVENTIQUE🌻</span> All Rights Reserved.</p>
+    <p>Making Every Moment Special.</p>
+</footer>
+
+</body>
+</html>
